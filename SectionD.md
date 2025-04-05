@@ -3,6 +3,16 @@ WGU Task:  Provide an original SQL query in a text format that will extract the 
 This query pulls data from payment and customer, then uses my function TransformActiveStatus() to convert the active field into a readable label.
 
 --------------------------------------------------
+INSERT INTO customer_payment_detail (
+  PaymentID,
+  CustomerID,
+  FirstName,
+  LastName,
+  Email,
+  PaymentDate,
+  Amount,
+  ActiveStatus
+)
 SELECT
   p.payment_id,
   c.customer_id,
