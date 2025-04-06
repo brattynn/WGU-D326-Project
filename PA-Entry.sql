@@ -13,15 +13,10 @@ END;
 $$
 LANGUAGE plpgsql;
 
---Check to see if the function exists
-SELECT proname, proargtypes
-FROM pg_proc
-WHERE proname = 'transform_active_status';
-
 --Test the above function with the following:
 SELECT transformActiveStatus(1); --Should output 'Active'
 SELECT transformActiveStatus(0); -- Should output 'Inactive'
-SELECT transformActiveStatus(2); -- Should output 'Unkown'
+SELECT transformActiveStatus(2); -- Should output 'Unknown'
 
 --Creating 2 new tables
 CREATE TABLE customer_payment_detail (
@@ -46,10 +41,6 @@ CREATE TABLE customer_payment_summary (
 --Show that the tables were created
 SELECT * FROM customer_payment_detail;
 SELECT * FROM customer_payment_summary;
-
---Drop the created tables (for testing purposes ONLY)
-DROP TABLE customer_payment_detail;
-DROP TABLE customer_payment_summary;
 
 --Creating a trigger function
 CREATE OR REPLACE FUNCTION update_customer_payment_summary()
@@ -112,21 +103,15 @@ SELECT
   c.email,
   p.payment_date,
   p.amount,
-  transform_active_status(c.active::INT) AS active_status
+  transform_active_status(c.active::INT) AS active_status	--This line casts the boolean value to an integer so the function works properly
 FROM payment p
 JOIN customer c ON p.customer_id = c.customer_id;
 
-
 --Check the tables
-SELECT * FROM customer_payment_detail; --14596 rows
+SELECT * FROM customer_payment_detail;
 SELECT * FROM customer_payment_summary;
 
---Select the top 5 spenders
-SELECT * FROM customer_payment_summary
-ORDER BY total_spent DESC
-LIMIT 5;
-
---Stored Procedure
+--Creating the Stored Procedure
 CREATE OR REPLACE PROCEDURE refresh_customer_payment_report()
 LANGUAGE plpgsql
 AS
@@ -134,9 +119,9 @@ $$
 BEGIN
     -- Clear out the summary table first to avoid trigger errors
     DELETE FROM customer_payment_summary;
-    -- Clear the detailed table
+    -- Clear the detail table
     DELETE FROM customer_payment_detail;
-    -- Repopulate the detailed table (trigger will handle the summary)
+    -- Repopulate the detail table (trigger will handle the summary)
     
    INSERT INTO customer_payment_detail (
         payment_id,
@@ -166,15 +151,15 @@ $$;
 DELETE FROM customer_payment_detail;
 DELETE FROM customer_payment_summary;
 
---Check tables
-SELECT * FROM customer_payment_detail; --14596 rows
+--Check tables (should have no information)
+SELECT * FROM customer_payment_detail;
 SELECT * FROM customer_payment_summary;
 
 --Call the stored Procedure
 CALL refresh_customer_payment_report();
 
---Check tables
-SELECT * FROM customer_payment_detail; --14596 rows
+--Check tables (should now be repopulated)
+SELECT * FROM customer_payment_detail; --14596
 SELECT * FROM customer_payment_summary;
 
 --Find the top spending customers
