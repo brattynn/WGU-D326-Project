@@ -20,8 +20,8 @@ SELECT
   c.last_name,
   c.email,
   p.payment_date,
-  p.amount
-  tranform_active_status(c.activebool) AS active_status
+  p.amount,
+  tranform_active_status(c.active::int) AS active_status    --Casting the boolean value to an integer here.
 FROM payment p
 JOIN customer c ON p.customer_id = c.customer_id;
 --------------------------------------------------
