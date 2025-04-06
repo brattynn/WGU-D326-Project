@@ -5,30 +5,30 @@ Business Report Summary:
 
 A1. Specific Fields in Each Table:
   Detailed Table Fields:
-    CustomerID      unique ID for the customer
-    FirstName       customer’s first name
-    LastName        customer’s last name
-    Email           customer’s contact email
-    PaymentID       unique ID for each payment transaction
-    Amount          amount paid for the rental
-    PaymentDate     date of the payment
-    ActiveStatus    transformed value of the active field to show "Active" or "Inactive"
+    customer_id      unique ID for the customer
+    first_name       customer’s first name
+    last_name        customer’s last name
+    email           customer’s contact email
+    payment_id       unique ID for each payment transaction
+    amount          amount paid for the rental
+    payment_date     date of the payment
+    active_status    transformed value of the active field to show "Active" or "Inactive"
   
   Summary Table Fields:
-    CustomerID
-    FullName        concatenation of first and last name
-    TotalSpent      total amount spent across all payments
-    Email
-    ActiveStatus
+    customer_id
+    full_name        concatenation of first and last name
+    total_spent      total amount spent across all payments
+    email
+    active_status
 
 
 A2. Data Field Types Used
-    CustomerID:    INTEGER
-    PaymentID:     INTEGER
-    FirstName, LastName, Email, FullName:    VARCHAR
-    ActiveStatus:          TEXT
-    Amount, TotalSpent:    DECIMAL
-    PaymentDate:           TIMESTAMP or DATE
+    customer_id:    INTEGER
+    payment_id:     INTEGER
+    first_name, last_name, email, full_name:    VARCHAR
+    active_status:          TEXT
+    amount, total_spent:    DECIMAL
+    payment_date:           TIMESTAMP or DATE
 
 
 A3. Source Tables from the Dataset
