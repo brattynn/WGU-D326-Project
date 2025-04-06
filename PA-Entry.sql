@@ -162,7 +162,7 @@ CALL refresh_customer_payment_report();
 SELECT * FROM customer_payment_detail; --14596
 SELECT * FROM customer_payment_summary;
 
---Find the top spending customers
+--Business Question: Who are the top 5 customers based on total rental spending?
 SELECT * FROM customer_payment_summary
 ORDER BY total_spent DESC
 LIMIT 5;
