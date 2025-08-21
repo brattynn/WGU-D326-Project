@@ -1,5 +1,13 @@
 # 🎬 Advanced Data Management Project – DVD Rental Database  
 
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-000000?style=for-the-badge&logo=database&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+![Status](https://img.shields.io/badge/Completed-success?style=for-the-badge&color=2ea44f)
+![WGU](https://img.shields.io/badge/WGU-Blue?style=for-the-badge&logo=google-scholar&logoColor=white)
+
+---
+
 This project was completed as part of my **Advanced Data Management (D191/D326)** course, where I built a SQL-based reporting system on top of the PostgreSQL DVD Rental dataset. The goal was to answer a real-world business question using detailed and summarized reporting, supported by functions, triggers, and stored procedures.  
 
 ---
