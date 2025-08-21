@@ -3,7 +3,6 @@
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
 ![SQL](https://img.shields.io/badge/SQL-000000?style=for-the-badge&logo=database&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
-![Status](https://img.shields.io/badge/Completed-success?style=for-the-badge&color=2ea44f)
 ![WGU](https://img.shields.io/badge/WGU-Blue?style=for-the-badge&logo=google-scholar&logoColor=white)
 
 ---
